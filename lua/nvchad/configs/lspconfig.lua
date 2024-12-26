@@ -22,8 +22,7 @@ M.on_attach = function(_, bufnr)
   map("n", "<leader>ra", require "nvchad.lsp.renamer", opts "NvRenamer")
 
   map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts "Code action")
-  -- map("n", "gr", vim.lsp.buf.references, opts "Show references")
-  map("n", "gr", <cmd> Telescope lsp_references<cr>, {opts "Show references", buffer = bufnr})
+  map("n", "gr", vim.lsp.buf.references, opts "Show references")
 end
 
 -- disable semanticTokens
