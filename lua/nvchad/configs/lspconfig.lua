@@ -6,7 +6,7 @@ M.on_attach = function(_, bufnr)
   local function opts(desc)
     return { buffer = bufnr, desc = "LSP " .. desc }
   end
-
+  local builtin = require('telescope.builtin')
   map("n", "gD", vim.lsp.buf.declaration, opts "Go to declaration")
   map("n", "gd", vim.lsp.buf.definition, opts "Go to definition")
   map("n", "gi", vim.lsp.buf.implementation, opts "Go to implementation")
@@ -22,7 +22,7 @@ M.on_attach = function(_, bufnr)
   map("n", "<leader>ra", require "nvchad.lsp.renamer", opts "NvRenamer")
 
   map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts "Code action")
-  map("n", "gr", require "telescope.builtin.lsp_references", {buffer = bufnr, opts "Show references"})
+  map("n", "gr", builtin.lsp_references, {buffer = bufnr, opts "Show references"})
 end
 
 -- disable semanticTokens
